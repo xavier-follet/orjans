@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dreamdomes Sverige</title>
+<meta name="description" content="Glaskupoler i polykarbonat för glamping, restaurang och event. Byggda för nordiskt klimat. Återförsäljare i Sverige: Örjan Mickelsson.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="img/dd-hero.jpg">
+<style>
+:root{
+  --bg:#f5f8fa; --surface:#fcfdfe; --tint:#e6eff6; --ink:#0f1a24; --muted:#4a5a68; --line:#d9e2e9;
+  --accent:#1f6fb2; --on-accent:#fcfdfe; --shadow:0 20px 50px -24px rgb(31 111 178 / .35);
+  color-scheme:light dark;
+}
+@media (prefers-color-scheme:dark){:root{
+  --bg:#0b1218; --surface:#111b23; --tint:#13232f; --ink:#e8eef3; --muted:#9fb0bd; --line:#22313c;
+  --accent:#7cb8ea; --on-accent:#0b1218; --shadow:0 20px 50px -24px rgb(0 0 0 / .6);
+}}
+*{box-sizing:border-box;margin:0}
+body{font-family:Outfit,system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+.wrap{max-width:1240px;margin:0 auto;padding:0 24px}
+h1,h2,h3{line-height:1.08;letter-spacing:-.025em;font-weight:600}
+h2{font-size:clamp(2rem,4vw,3rem)}
+p{color:var(--muted);max-width:60ch}
+
+/* buttons: full pill; images and panels: 18px */
+.btn{display:inline-block;padding:.85rem 1.5rem;border-radius:999px;font-weight:500;text-decoration:none;white-space:nowrap;transition:transform .2s cubic-bezier(.16,1,.3,1),background .2s}
+.btn:active{transform:scale(.98)}
+.btn-primary{background:var(--accent);color:var(--on-accent)}
+.btn-primary:hover{transform:translateY(-2px)}
+.btn-ghost{border:1px solid var(--line);color:var(--ink)}
+.btn-ghost:hover{border-color:var(--accent)}
+.img{border-radius:18px;overflow:hidden}
+.img img{width:100%;height:100%;object-fit:cover}
+
+/* nav */
+.nav{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--bg) 85%,transparent);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:68px;gap:24px}
+.nav img{height:44px;width:auto}
+.nav ul{display:flex;gap:28px;list-style:none;padding:0}
+.nav ul a{text-decoration:none;color:var(--muted);font-size:.95rem}
+.nav ul a:hover{color:var(--ink)}
+@media (max-width:860px){.nav ul{display:none}}
+
+/* hero */
+.hero{padding:56px 0 72px}
+.hero .wrap{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.eyebrow{font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:20px}
+.hero h1{font-size:clamp(2.3rem,3.9vw,3.4rem);margin-bottom:22px}
+.hero p{font-size:1.15rem;margin-bottom:32px}
+.hero .ctas{display:flex;gap:12px;flex-wrap:wrap}
+.hero .img{aspect-ratio:4/3;box-shadow:var(--shadow)}
+@media (max-width:860px){.hero .wrap{grid-template-columns:1fr;gap:36px}}
+
+/* numbers */
+.stats{border-block:1px solid var(--line);padding:48px 0}
+.stats .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:32px}
+.stats b{display:block;font-size:clamp(2.2rem,4vw,3.25rem);font-weight:600;letter-spacing:-.03em;color:var(--accent);line-height:1.1}
+.stats span{color:var(--muted);font-size:.95rem}
+@media (max-width:760px){.stats .wrap{grid-template-columns:1fr 1fr}}
+
+/* full bleed */
+.bleed{position:relative;margin:96px 0;min-height:min(70vh,760px);display:grid;align-items:end}
+.bleed img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.bleed::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgb(8 14 20 / .75),transparent 55%)}
+.bleed .wrap{position:relative;z-index:1;padding-bottom:56px;width:100%}
+.bleed h2{color:#f3f6f8;max-width:18ch}
+.bleed p{color:#d5dee5;margin-top:12px}
+
+/* bento */
+.section{padding:96px 0}
+.section > .wrap > h2{margin-bottom:16px}
+.section > .wrap > p.lead{margin-bottom:48px;font-size:1.1rem}
+.bento{display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:minmax(220px,auto);gap:16px}
+.cell{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:28px;display:flex;flex-direction:column;justify-content:flex-end}
+.cell h3{font-size:1.3rem;margin-bottom:8px}
+.cell p{font-size:.98rem}
+.cell.tint{background:var(--tint);border-color:transparent}
+.cell.accent{background:var(--accent);border-color:transparent}
+.cell.accent h3,.cell.accent p{color:var(--on-accent)}
+.cell.photo{padding:0;overflow:hidden;position:relative;grid-row:span 2}
+.cell.photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.cell.photo div{position:relative;margin-top:auto;padding:28px;background:linear-gradient(to top,rgb(8 14 20 / .8),transparent)}
+.cell.photo h3,.cell.photo p{color:#f3f6f8}
+.wide{grid-column:span 2}
+@media (max-width:860px){.bento{grid-template-columns:1fr}.wide{grid-column:auto}.cell.photo{min-height:420px}}
+
+/* uses */
+.uses{display:grid;grid-template-columns:3fr 2fr;gap:16px}
+.uses figure{display:flex;flex-direction:column;gap:14px}
+.uses .img{flex:1;min-height:260px}
+.uses figcaption b{display:block;font-size:1.15rem;font-weight:600}
+.uses figcaption span{color:var(--muted)}
+.uses .stack{display:grid;gap:16px}
+@media (max-width:860px){.uses{grid-template-columns:1fr}}
+
+/* record */
+.record .wrap{display:grid;grid-template-columns:6fr 5fr;gap:64px;align-items:center}
+.record .img{aspect-ratio:3/2}
+.record ul{list-style:none;padding:0;margin-top:28px;display:grid;gap:10px}
+.record li{padding-left:18px;position:relative;color:var(--ink)}
+.record li::before{content:"";position:absolute;left:0;top:.7em;width:8px;height:2px;background:var(--accent)}
+@media (max-width:860px){.record .wrap{grid-template-columns:1fr;gap:36px}}
+
+/* packages */
+.packs{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:40px}
+.pack{border:1px solid var(--line);border-radius:18px;padding:32px;background:var(--surface)}
+.pack.featured{border-color:var(--accent);box-shadow:var(--shadow)}
+.pack h3{font-size:1.5rem;margin-bottom:10px}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
+.facts b{display:block;font-weight:600;margin-bottom:4px}
+@media (max-width:760px){.packs,.facts{grid-template-columns:1fr}}
+
+/* contact */
+.contact{background:var(--tint);border-radius:28px;padding:64px;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+.contact h2{margin-bottom:14px}
+.person{display:grid;gap:14px}
+.person .name{font-size:1.6rem;font-weight:600}
+.person a{text-decoration:none;font-size:1.1rem}
+.person a:hover{color:var(--accent)}
+.person .ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:8px}
+@media (max-width:860px){.contact{grid-template-columns:1fr;padding:36px 24px}}
+
+footer{padding:48px 0;color:var(--muted);font-size:.92rem}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+
+/* motion */
+@keyframes rise{from{opacity:0;transform:translateY(28px)}}
+@media (prefers-reduced-motion:no-preference){
+  .hero .wrap > *{animation:rise .9s cubic-bezier(.16,1,.3,1) both}
+  .hero .wrap > :nth-child(2){animation-delay:.12s}
+  @supports (animation-timeline:view()){
+    .reveal{animation:rise linear both;animation-timeline:view();animation-range:entry 0% entry 35%}
+  }
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap">
+    <a href="index.html" aria-label="Startsida">
+      <picture>
+        <source srcset="img/dd-logo-white.png" media="(prefers-color-scheme: dark)">
+        <img src="img/dd-logo.png" alt="Dreamdomes Scandinavia" width="212" height="100">
+      </picture>
+    </a>
+    <ul>
+      <li><a href="#fordelar">Fördelar</a></li>
+      <li><a href="#anvandning">Användning</a></li>
+      <li><a href="#kop">Köpa</a></li>
+      <li><a href="smartliving.html">Smart Living 24</a></li>
+    </ul>
+    <a class="btn btn-primary" href="#kontakt">Begär offert</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow">Dreamdomes i Sverige</p>
+      <h1>Sov under stjärnorna.<br>Året runt.</h1>
+      <p>Glaskupoler i polykarbonat, byggda för nordiskt klimat. För glamping, restaurang, event och den egna trädgården.</p>
+      <div class="ctas">
+        <a class="btn btn-primary" href="#kontakt">Begär offert</a>
+        <a class="btn btn-ghost" href="#fordelar">Se fördelarna</a>
+      </div>
+    </div>
+    <div class="img"><img src="img/dd-hero.jpg" alt="Genomskinlig Dreamdome med dubbelsäng i granskog vid en sjö" width="1536" height="1058" fetchpriority="high"></div>
+  </div>
+</header>
+
+<section class="stats" aria-label="Nyckeltal">
+  <div class="wrap">
+    <div class="reveal"><b>219 cm</b><span>maximal snölast</span></div>
+    <div class="reveal"><b>145 km/h</b><span>tål vindhastigheter upp till</span></div>
+    <div class="reveal"><b>250-300×</b><span>högre slaghållfasthet än vanligt glas</span></div>
+    <div class="reveal"><b>3-4 tim</b><span>normal monteringstid per kupol</span></div>
+  </div>
+</section>
+
+<section class="section" id="fordelar">
+  <div class="wrap">
+    <h2 class="reveal">Byggd för snö, storm och midnattssol</h2>
+    <p class="lead reveal">Varje kupol är gjord av polykarbonat från Bayer i Tyskland. Materialet används i flygplanscockpits och skyddsglas.</p>
+    <div class="bento">
+      <div class="cell photo reveal">
+        <img src="img/dd-connect.jpg" alt="Tre sammankopplade kupoler: sovrum, barnrum och badrum" loading="lazy" width="800" height="600">
+        <div><h3>Koppla ihop flera kupoler</h3><p>En kopplingsmodul förenar kupoler i olika storlekar: sovrum, badrum, extra rum. Så många du vill.</p></div>
+      </div>
+      <div class="cell wide accent reveal"><h3>Praktiskt taget okrossbar</h3><p>Polykarbonat kallas "plastens kung". Slagtåligt, giftfritt och isolerande, på en sockelring i anodiserad, pulverlackerad aluminium.</p></div>
+      <div class="cell reveal"><h3>Brandklass B1</h3><p>Självslocknande material som smälter först vid 580 °C. Därför går det att installera vedkamin.</p></div>
+      <div class="cell tint reveal"><h3>100 % UV-skydd</h3><p>Dubbelsidig UV-beläggning. Kupolen gulnar inte och förblir kristallklar år efter år.</p></div>
+      <div class="cell tint reveal"><h3>Vatten- och vindtät</h3><p>Överlappande fogar och dubbla silikonlister. Rengör den med trädgårdsslang.</p></div>
+      <div class="cell reveal"><h3>Tyst inomhus</h3><p>Polykarbonat dämpar ljud effektivt. Du sover gott, och restauranggäster får lugn.</p></div>
+      <div class="cell reveal"><h3>Bekvämt året runt</h3><p>God isolering och täta lister. Tillval: klimatanläggning och IR-skydd som stänger ute cirka 90 % av solvärmen.</p></div>
+    </div>
+  </div>
+</section>
+
+<figure class="bleed">
+  <img src="img/dd-sunset.jpg" alt="Upplyst kupol på en altan vid havet i solnedgång" loading="lazy" width="1962" height="1124">
+  <div class="wrap">
+    <h2 class="reveal">Redan på plats runt om i Norden</h2>
+    <p class="reveal">Nu med egen återförsäljare i Sverige.</p>
+  </div>
+</figure>
+
+<section class="section" id="anvandning">
+  <div class="wrap">
+    <h2 class="reveal">En kupol, många affärer</h2>
+    <p class="lead reveal">Från en enskild glampingkupol till eventlokaler för 150 gäster. Skräddarsydda lösningar efter behov och storlek.</p>
+    <div class="uses">
+      <figure class="reveal">
+        <div class="img"><img src="img/dd-event.jpg" alt="Två avlånga glaskupoler med bröllop och buffé" loading="lazy" width="1536" height="864"></div>
+        <figcaption><b>Restaurang, konferens och event</b><span>Max Dome upp till 10 × 26 m, cirka 150 personer. Nya Alu Star-serien med skjutdörrar lanseras 2026.</span></figcaption>
+      </figure>
+      <div class="stack">
+        <figure class="reveal">
+          <div class="img"><img src="img/dd-glamping.jpg" alt="Glampingby med kupoler på bryggor vid en sjö" loading="lazy" width="1536" height="864"></div>
+          <figcaption><b>Glamping och uthyrning</b><span>Isolerade modeller, med eller utan badrum.</span></figcaption>
+        </figure>
+        <figure class="reveal">
+          <div class="img"><img src="img/dd-capsule.jpg" alt="Avlång kapselkupol med sovrum på ett trädäck" loading="lazy" width="1536" height="864"></div>
+          <figcaption><b>Trädgård och fritidshus</b><span>Star Capsule PRO, 25 m² med dubbla, isolerade lager.</span></figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section record">
+  <div class="wrap">
+    <div class="img reveal"><img src="img/dd-inside.jpg" alt="Övervåning i världens största polykarbonatkupol" loading="lazy" width="1536" height="1024"></div>
+    <div class="reveal">
+      <h2>Världens största polykarbonatkupol</h2>
+      <p style="margin-top:16px">Dreamdomes levererar en kupol på hela 10 meter i diameter, i två våningar. Europas första isolerade glampingkupol kommer också härifrån.</p>
+      <ul>
+        <li>2 sovrum med dubbelsäng</li>
+        <li>2 bäddsoffor och vardagsrum på övervåningen</li>
+        <li>Vardagsrum och matplats på entréplan</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="kop">
+  <div class="wrap">
+    <h2 class="reveal">Två paket. Välj själv hur färdigt.</h2>
+    <p class="lead reveal">Alla kupoler finns i två priskategorier. Priser anges i euro, frakt och moms tillkommer.</p>
+    <div class="packs">
+      <div class="pack reveal"><h3>Ekonomi</h3><p>Själva kupolen med dörr, fönster och aluminiumram i basen. För dig som vill inreda själv.</p></div>
+      <div class="pack featured reveal"><h3>Komplett</h3><p>Allt ingår: dörr med elektroniskt kortsystem, takfläkt, LED-belysning ute och inne, fjärrstyrda gardiner, möbler och badrum.</p></div>
+    </div>
+    <div class="facts">
+      <div class="reveal"><b>Provmonterad i fabrik</b><p>Varje kupol monteras på prov före leverans och skickas i trälåda.</p></div>
+      <div class="reveal"><b>Enkel montering</b><p>Steg-för-steg-video ingår. Tre personer, 3-4 timmar, på trä- eller betongplatta.</p></div>
+      <div class="reveal"><b>Leveranstid 4-5 månader</b><p>Beställ i höst så står kupolen klar till nästa säsong.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="kontakt" style="padding-top:0">
+  <div class="wrap">
+    <div class="contact reveal">
+      <div>
+        <h2>Prata med din svenska kontakt</h2>
+        <p>Berätta vad du vill bygga, så tar vi fram förslag, pris och leveransplan. Hela modellkatalogen finns på dreamdomes.no.</p>
+      </div>
+      <div class="person">
+        <span class="name">Örjan Mickelsson</span>
+        <span style="color:var(--muted)">Dreamdomes Scandinavia, Sverige</span>
+        <a href="tel:+46735567609">+46 73 556 76 09</a>
+        <a href="mailto:orjan@dreamdomes.se">orjan@dreamdomes.se</a>
+        <div class="ctas">
+          <a class="btn btn-primary" href="mailto:orjan@dreamdomes.se?subject=Offertf%C3%B6rfr%C3%A5gan%20Dreamdomes">Begär offert</a>
+          <a class="btn btn-ghost" href="https://wa.me/46735567609">WhatsApp</a>
+          <a class="btn btn-ghost" href="https://dreamdomes.no/produkter/">Katalog</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>Dreamdomes Scandinavia AS, Løkken Verk, Norge. Svensk återförsäljare: Örjan Mickelsson.</span>
+    <a href="smartliving.html">Se även: Smart Living 24 mikrohus</a>
+  </div>
+</footer>
+
+</body>
+</html>

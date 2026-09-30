@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Smart Living 24 Sverige</title>
+<meta name="description" content="Nyckelfärdiga mikrohus med kök, bad och klimatanläggning. Lyfts på plats med kran. Återförsäljare i Sverige: Örjan Mickelsson.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="img/sl-hero.jpg">
+<style>
+/* Brand is black + gold, so this page is dark in both colour schemes. */
+:root{
+  --bg:#0e0e10; --surface:#17171a; --raise:#1f1f23; --ink:#efece6; --muted:#a9a49b; --line:#2b2b30;
+  --gold:#d0aa60; --on-gold:#141414;
+  color-scheme:dark;
+}
+*{box-sizing:border-box;margin:0}
+body{font-family:Geist,system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+.wrap{max-width:1240px;margin:0 auto;padding:0 24px}
+h1,h2,h3{line-height:1.05;letter-spacing:-.03em;font-weight:500}
+h2{font-size:clamp(2rem,4vw,3.1rem)}
+p{color:var(--muted);max-width:60ch}
+
+/* shape rule: everything sharp-ish (6px), buttons included */
+.btn{display:inline-block;padding:.85rem 1.5rem;border-radius:6px;font-weight:500;text-decoration:none;white-space:nowrap;transition:transform .2s cubic-bezier(.16,1,.3,1),border-color .2s}
+.btn:active{transform:scale(.98)}
+.btn-gold{background:var(--gold);color:var(--on-gold)}
+.btn-gold:hover{transform:translateY(-2px)}
+.btn-line{border:1px solid #6b665e;color:var(--ink)}
+.btn-line:hover{border-color:var(--gold)}
+.img{border-radius:6px;overflow:hidden;background:var(--surface)}
+.img img{width:100%;height:100%;object-fit:cover}
+.gold{color:var(--gold)}
+
+/* nav */
+.nav{position:sticky;top:0;z-index:10;background:rgb(14 14 16 / .85);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:68px;gap:24px}
+.nav img{height:40px;width:auto;mix-blend-mode:lighten}
+.nav ul{display:flex;gap:28px;list-style:none;padding:0}
+.nav ul a{text-decoration:none;color:var(--muted);font-size:.95rem}
+.nav ul a:hover{color:var(--ink)}
+@media (max-width:860px){.nav ul{display:none}.nav img{height:30px}}
+
+/* hero */
+.hero{position:relative;min-height:min(calc(100dvh - 68px),860px);display:grid;align-items:end;overflow:hidden}
+.hero > img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:60% 50%}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgb(14 14 16 / .92) 0%,rgb(14 14 16 / .55) 45%,transparent 75%),linear-gradient(to top,rgb(14 14 16 / .8),transparent 40%)}
+.hero .wrap{position:relative;z-index:1;width:100%;padding-block:64px}
+.hero h1{font-size:clamp(2.5rem,5.2vw,4.5rem);max-width:14ch;margin-bottom:22px}
+.hero p{font-size:1.15rem;color:#cfcac1;margin-bottom:32px;max-width:44ch}
+.ctas{display:flex;gap:12px;flex-wrap:wrap}
+
+/* three claims */
+.claims{padding:88px 0;border-bottom:1px solid var(--line)}
+.claims .wrap{display:grid;grid-template-columns:repeat(3,1fr);gap:48px}
+.claims b{display:block;font-size:clamp(2rem,3.4vw,2.8rem);font-weight:500;letter-spacing:-.03em;color:var(--gold);line-height:1.1;margin-bottom:12px}
+@media (max-width:760px){.claims .wrap{grid-template-columns:1fr;gap:36px}}
+
+/* gallery */
+.section{padding:104px 0}
+.section h2{margin-bottom:16px}
+.lead{font-size:1.1rem;margin-bottom:48px}
+.gallery{display:grid;grid-template-columns:2fr 1fr;grid-template-rows:280px 280px 360px;gap:12px}
+.gallery .a{grid-row:span 2}
+.gallery .d{grid-column:span 2}
+.gallery figure{position:relative}
+.gallery figcaption{position:absolute;left:0;bottom:0;padding:20px 22px;font-size:.95rem;color:#e7e3dc;background:linear-gradient(to top,rgb(14 14 16 / .85),transparent);width:100%}
+@media (max-width:760px){.gallery{grid-template-columns:1fr;grid-template-rows:none;grid-auto-rows:280px}.gallery .a,.gallery .d{grid-row:auto;grid-column:auto}}
+
+/* included */
+.included{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.box{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:36px}
+.box h3{font-size:1.4rem;margin-bottom:22px}
+.box ul{list-style:none;padding:0;display:grid;gap:12px}
+.box li{padding-left:22px;position:relative}
+.box li::before{content:"";position:absolute;left:0;top:.72em;width:10px;height:1px;background:var(--gold)}
+.box.extra{background:transparent}
+.box.extra li{color:var(--muted)}
+@media (max-width:760px){.included{grid-template-columns:1fr}}
+
+/* models */
+.models{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(220px,1fr);gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:16px;scrollbar-color:var(--line) transparent}
+.model{scroll-snap-align:start;background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:28px 24px;display:grid;gap:4px;transition:border-color .2s}
+.model:hover{border-color:var(--gold)}
+.model .n{font-size:1.5rem;font-weight:500;letter-spacing:.02em}
+.model .s{color:var(--muted);font-size:.9rem}
+.model .m{font-size:2.6rem;font-weight:300;letter-spacing:-.04em;margin:22px 0 4px}
+.model .p{color:var(--gold)}
+.note{font-size:.92rem;margin-top:20px}
+
+/* split */
+.split .wrap{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.split .img{aspect-ratio:4/3}
+.uses{display:grid;grid-template-columns:1fr 1fr;gap:24px 32px;margin-top:32px}
+.uses b{display:block;font-weight:500;margin-bottom:2px}
+.uses p{font-size:.95rem}
+@media (max-width:860px){.split .wrap{grid-template-columns:1fr;gap:36px}}
+@media (max-width:480px){.uses{grid-template-columns:1fr}}
+
+/* contact */
+.contact{border:1px solid var(--line);border-radius:6px;display:grid;grid-template-columns:5fr 6fr;overflow:hidden}
+.contact .img{border-radius:0;min-height:360px}
+.contact .body{padding:56px;display:grid;gap:14px;align-content:center}
+.contact .name{font-size:1.6rem;font-weight:500}
+.contact a:not(.btn){text-decoration:none;font-size:1.1rem}
+.contact a:not(.btn):hover{color:var(--gold)}
+@media (max-width:860px){.contact{grid-template-columns:1fr}.contact .body{padding:32px 24px}}
+
+footer{padding:48px 0;color:var(--muted);font-size:.92rem;border-top:1px solid var(--line);margin-top:104px}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+
+@keyframes rise{from{opacity:0;transform:translateY(28px)}}
+@media (prefers-reduced-motion:no-preference){
+  .hero .wrap > *{animation:rise 1s cubic-bezier(.16,1,.3,1) both}
+  .hero .wrap > :nth-child(2){animation-delay:.1s}
+  .hero .wrap > :nth-child(3){animation-delay:.2s}
+  @supports (animation-timeline:view()){
+    .reveal{animation:rise linear both;animation-timeline:view();animation-range:entry 0% entry 35%}
+  }
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap">
+    <a href="index.html" aria-label="Startsida"><img src="img/sl-logo.jpg" alt="Smart Living 24 Nordic" width="768" height="195"></a>
+    <ul>
+      <li><a href="#ingar">Ingår</a></li>
+      <li><a href="#modeller">Modeller</a></li>
+      <li><a href="#anvandning">Användning</a></li>
+      <li><a href="dreamdomes.html">Dreamdomes</a></li>
+    </ul>
+    <a class="btn btn-gold" href="#kontakt">Begär offert</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <img src="img/sl-hero.jpg" alt="Vitt mikrohus med LED-list och stora glaspartier i kvällsljus" width="1536" height="766" fetchpriority="high">
+  <div class="wrap">
+    <h1>Ett färdigt hem. Lyfts på plats med kran.</h1>
+    <p>Kompletta mikrohus med kök, badrum och klimatanläggning. Underhållsfritt skal med 50 års livslängd.</p>
+    <div class="ctas">
+      <a class="btn btn-gold" href="#kontakt">Begär offert</a>
+      <a class="btn btn-line" href="#modeller">Se modellerna</a>
+    </div>
+  </div>
+</header>
+
+<section class="claims" aria-label="Därför Smart Living 24">
+  <div class="wrap">
+    <div class="reveal"><b>Nyckelfärdigt</b><p>Levereras med interiör, el, vatten och belysning. Kranen lyfter, du flyttar in.</p></div>
+    <div class="reveal"><b>50 år</b><p>Galvaniserad stål- och aluminiumstomme, klädd i fluorkarbonlackerad aluminium. Inget att måla, inget att byta.</p></div>
+    <div class="reveal"><b>13 till 66 m²</b><p>Från kompakt gäststuga till tvåvåningshus med balkong. Mycket konkurrenskraftigt pris jämfört med traditionella hus och stugor.</p></div>
+  </div>
+</section>
+
+<section class="section" id="galleri">
+  <div class="wrap">
+    <h2 class="reveal">Hotellkänsla på några kvadratmeter</h2>
+    <p class="lead reveal">Stora glaspartier, indirekt belysning och material som håller.</p>
+    <div class="gallery">
+      <figure class="img a reveal"><img src="img/sl-pool.jpg" alt="Två mikrohus i en trädgård med pool och solstolar" loading="lazy" width="1600" height="902"><figcaption>Uthyrningsvilla med pool</figcaption></figure>
+      <figure class="img reveal"><img src="img/sl-kitchen.jpg" alt="Kök med marmorbänk och träluckor" loading="lazy" width="1024" height="767"><figcaption>Kök med stenbänkskiva</figcaption></figure>
+      <figure class="img reveal"><img src="img/sl-bedroom.jpg" alt="Sovrum med dubbelsäng, takfönster och LED-belysning" loading="lazy" width="1024" height="683"><figcaption>Sovrum med takfönster</figcaption></figure>
+      <figure class="img d reveal"><img src="img/sl-solar.jpg" alt="Mikrohus med takkonstruktion, upplyst i skymningen" loading="lazy" width="1024" height="683" style="object-position:50% 60%"><figcaption>Generation 6, i skymningsljus</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="ingar" style="padding-top:0">
+  <div class="wrap">
+    <h2 class="reveal">Allt på plats från dag ett</h2>
+    <p class="lead reveal">Huset lämnar fabriken färdigt. Välj själv vilka tillval som ska med.</p>
+    <div class="included">
+      <div class="box reveal">
+        <h3>Ingår</h3>
+        <ul>
+          <li>Miljövänligt trägolv, förberett för golvvärme</li>
+          <li>Badrum med marmor- eller klinkergolv</li>
+          <li>Designad tvättställ och spegel</li>
+          <li>Komplett belysningssystem</li>
+          <li>Komplett vatten- och elsystem</li>
+          <li>Midea klimatanläggning</li>
+          <li>Varmvattenberedare</li>
+          <li>Härdat glas i alla fönster och glasdörrar</li>
+        </ul>
+      </div>
+      <div class="box extra reveal">
+        <h3>Tillval</h3>
+        <ul>
+          <li>Dubbel isolering i väggarna</li>
+          <li>Integrerad golvvärme</li>
+          <li>Designat kök med kyl, frys och spis</li>
+          <li>Smart styrning av ljus och gardiner</li>
+          <li>Röststyrning för hela huset</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="modeller" style="padding-top:0">
+  <div class="wrap">
+    <h2 class="reveal">Välj storlek</h2>
+    <p class="lead reveal">Ett urval ur modellprogrammet. Tolv nya modeller kommer 2027.</p>
+    <div class="models reveal">
+      <div class="model"><span class="n">EIR</span><span class="s">Panorama Front S3</span><span class="m">13 m²</span><span class="p">från NOK 490 000</span></div>
+      <div class="model"><span class="n">IDUNN</span><span class="s">Panorama Front P3</span><span class="m">15,6 m²</span><span class="p">från NOK 649 000</span></div>
+      <div class="model"><span class="n">FRIGG</span><span class="s">Panorama X3</span><span class="m">18 m²</span><span class="p">från NOK 690 000</span></div>
+      <div class="model"><span class="n">GRID</span><span class="s">Kundanpassad Y6</span><span class="m">23,5 m²</span><span class="p">från NOK 790 000</span></div>
+      <div class="model"><span class="n">FRØYA</span><span class="s">Panorama X5</span><span class="m">28 m²</span><span class="p">från NOK 749 000</span></div>
+      <div class="model"><span class="n">HEIMDAL</span><span class="s">Panorama Front P5</span><span class="m">31 m²</span><span class="p">från NOK 690 000</span></div>
+      <div class="model"><span class="n">TOR</span><span class="s">Panorama X7</span><span class="m">38 m²</span><span class="p">från NOK 890 000</span></div>
+      <div class="model"><span class="n">NJORD</span><span class="s">Kundanpassad M9</span><span class="m">38 m²</span><span class="p">från NOK 1 090 000</span></div>
+      <div class="model"><span class="n">BALDER</span><span class="s">Panorama X7 + X5</span><span class="m">66 m²</span><span class="p">från NOK 1 690 000</span></div>
+    </div>
+    <p class="note">Priser i norska kronor exklusive moms. Kontakta oss för pris i SEK inklusive frakt till Sverige. Alla modeller finns på <a href="https://smartliving24.no/">smartliving24.no</a>.</p>
+  </div>
+</section>
+
+<section class="section split" id="anvandning" style="padding-top:0">
+  <div class="wrap">
+    <div class="img reveal"><img src="img/sl-day.jpg" alt="Långsmalt mikrohus med glasfasad på en gräsmatta" loading="lazy" width="1024" height="766"></div>
+    <div class="reveal">
+      <h2>Ett hus, fyra sätt att använda det</h2>
+      <div class="uses">
+        <div><b>Permanent boende</b><p>Energieffektivt, vattentätt och byggt för nordiskt klimat.</p></div>
+        <div><b>Fritidshus</b><p>Ställ det vid sjön eller i fjällen. Klart samma dag som det lyfts på plats.</p></div>
+        <div><b>Uthyrning</b><p>En egen intäktskälla på tomten, eller flera hus som en liten anläggning.</p></div>
+        <div><b>Gästhus</b><p>Flera modeller är under 30 m². Fråga din kommun om attefallsregler.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="kontakt" style="padding-top:0">
+  <div class="wrap">
+    <div class="contact reveal">
+      <div class="img"><img src="img/sl-hero.jpg" alt="Mikrohus med balkong i kvällsljus" loading="lazy" width="1536" height="766" style="object-position:40% 50%"></div>
+      <div class="body">
+        <h2>Begär offert</h2>
+        <p>Vill du se ett hus på riktigt? Visningshuset, en TOR på 38 m² med sovrum, bad, kök, vardagsrum och balkong, står i Løkken Verk i Trøndelag, Norge.</p>
+        <span class="name">Örjan Mickelsson</span>
+        <span style="color:var(--muted)">Smart Living 24, Sverige</span>
+        <a href="tel:+46735567609">+46 73 556 76 09</a>
+        <a href="mailto:orjan@dreamdomes.se">orjan@dreamdomes.se</a>
+        <div class="ctas" style="margin-top:8px">
+          <a class="btn btn-gold" href="mailto:orjan@dreamdomes.se?subject=Offertf%C3%B6rfr%C3%A5gan%20Smart%20Living%2024">Skicka e-post</a>
+          <a class="btn btn-line" href="https://wa.me/46735567609">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>Smart Living 24 AS, Løkken Verk, Norge. Svensk återförsäljare: Örjan Mickelsson.</span>
+    <a href="dreamdomes.html">Se även: Dreamdomes glaskupoler</a>
+  </div>
+</footer>
+
+</body>
+</html>

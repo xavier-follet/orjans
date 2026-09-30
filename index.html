@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Örjan Mickelsson</title>
+<meta name="description" content="Svensk återförsäljare för Dreamdomes glaskupoler och Smart Living 24 mikrohus.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0e1114;--ink:#f1f3f4;--muted:#b9c0c6;color-scheme:dark}
+*{box-sizing:border-box;margin:0}
+body{font-family:Outfit,system-ui,sans-serif;background:var(--bg);color:var(--ink);min-height:100dvh;display:grid;grid-template-rows:auto 1fr auto}
+header,footer{padding:20px 24px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+header b{font-weight:600;font-size:1.1rem}
+header span,footer{color:var(--muted);font-size:.95rem}
+footer a{color:var(--ink);text-decoration:none}
+footer a:hover{text-decoration:underline}
+main{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:0 8px}
+.card{position:relative;overflow:hidden;border-radius:14px;min-height:520px;display:grid;align-content:end;padding:40px;text-decoration:none;color:var(--ink)}
+.card > .bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.16,1,.3,1)}
+.card::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgb(10 12 14 / .92) 10%,rgb(10 12 14 / .15) 75%)}
+.card > *:not(.bg){position:relative;z-index:1}
+.logo{height:64px;width:auto;margin-bottom:24px}
+.card:nth-child(2) .logo{height:56px;border-radius:4px}
+.card h2{font-size:clamp(1.8rem,3vw,2.6rem);font-weight:600;letter-spacing:-.025em;line-height:1.1;margin-bottom:10px}
+.card p{color:#d6dce0;max-width:40ch;margin-bottom:22px}
+.go{display:inline-block;justify-self:start;padding:.75rem 1.4rem;border-radius:999px;background:var(--ink);color:#0e1114;font-weight:500}
+@media (prefers-reduced-motion:no-preference){.card:hover > .bg{transform:scale(1.04)}}
+@media (max-width:760px){main{grid-template-columns:1fr}.card{min-height:440px;padding:28px}}
+</style>
+</head>
+<body>
+<header>
+  <b>Örjan Mickelsson</b>
+  <span>Återförsäljare i Sverige</span>
+</header>
+<main>
+  <a class="card" href="dreamdomes.html">
+    <img class="bg" src="img/dd-hero.jpg" alt="" width="1536" height="1058">
+    <img class="logo" src="img/dd-logo-white.png" alt="Dreamdomes Scandinavia" width="300" height="142">
+    <h2>Glaskupoler för glamping, restaurang och event</h2>
+    <p>Okrossbar polykarbonat som klarar 219 cm snö och 145 km/h vind.</p>
+    <span class="go">Utforska Dreamdomes</span>
+  </a>
+  <a class="card" href="smartliving.html">
+    <img class="bg" src="img/sl-hero.jpg" alt="" width="1536" height="766" style="object-position:60% 50%">
+    <img class="logo" src="img/sl-logo.jpg" alt="Smart Living 24 Nordic" width="768" height="195">
+    <h2>Nyckelfärdiga mikrohus, lyfts på plats med kran</h2>
+    <p>Kompletta hem från 13 till 66 m² med 50 års livslängd.</p>
+    <span class="go">Utforska Smart Living 24</span>
+  </a>
+</main>
+<footer>
+  <span><a href="tel:+46735567609">+46 73 556 76 09</a> &nbsp;|&nbsp; <a href="mailto:orjan@dreamdomes.se">orjan@dreamdomes.se</a></span>
+  <a href="https://wa.me/46735567609">WhatsApp</a>
+</footer>
+</body>
+</html>
